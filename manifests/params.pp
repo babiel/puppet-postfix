@@ -185,13 +185,164 @@ class postfix::params {
       }
     }
     'Debian': {
-      $lookup_packages = {
+      $lookup_packages                     = {
         'cdb'   => 'postfix-cdb',
         'ldap'  => 'postfix-ldap',
         'mysql' => 'postfix-mysql',
         'pcre'  => 'postfix-pcre',
         'pgsql' => 'postfix-pgsql',
-      }
+      },
+      # Debian default services
+      $services                            = {
+        'smtp/inet'          => {
+          'private' => 'n',
+          'chroot'  => 'y',
+          'command' => 'smtpd',
+        },
+        'pickup/unix'        => {
+          'private' => 'n',
+          'chroot'  => 'y',
+          'wakeup'  => '60',
+          'limit'   => '1',
+          'command' => 'pickup',
+        },
+        'cleanup/unix'       => {
+          'private' => 'n',
+          'chroot'  => 'y',
+          'limit'   => '0',
+          'command' => 'cleanup',
+        },
+        'qmgr/unix'          => {
+          'private' => 'n',
+          'chroot'  => 'n',
+          'wakeup'  => '300',
+          'limit'   => '1',
+          'command' => 'qmgr',
+        },
+        'tlsmgr/unix'        => {
+          'chroot'  => 'y',
+          'wakeup'  => '1000?',
+          'limit'   => '1',
+          'command' => 'tlsmgr',
+        },
+        'rewrite/unix'       => {
+          'chroot'  => 'y',
+          'command' => 'trivial-rewrite',
+        },
+        'bounce/unix'        => {
+          'chroot'  => 'y',
+          'limit'   => '0',
+          'command' => 'bounce',
+        },
+        'defer/unix'         => {
+          'chroot'  => 'y',
+          'limit'   => '0',
+          'command' => 'bounce',
+        },
+        'trace/unix'         => {
+          'chroot'  => 'y',
+          'limit'   => '0',
+          'command' => 'bounce',
+        },
+        'verify/unix'        => {
+          'chroot'  => 'y',
+          'limit'   => '1',
+          'command' => 'verify',
+        },
+        'flush/unix'         => {
+          'private' => 'n',
+          'chroot'  => 'y',
+          'wakeup'  => '1000?',
+          'limit'   => '0',
+          'command' => 'flush',
+        },
+        'proxymap/unix'      => {
+          'chroot'  => 'n',
+          'command' => 'proxymap',
+        },
+        'proxywrite/unix'    => {
+          'chroot'  => 'n',
+          'limit'   => '1',
+          'command' => 'proxymap',
+        },
+        'smtp/unix'          => {
+          'chroot'  => 'y',
+          'command' => 'smtp',
+        },
+        'relay/unix'         => {
+          'chroot'  => 'y',
+          'command' => 'smtp -o syslog_name=postfix/$service_name',
+        },
+        'showq/unix'         => {
+          'private' => 'n',
+          'chroot'  => 'y',
+          'command' => 'showq',
+        },
+        'error/unix'         => {
+          'chroot'  => 'y',
+          'command' => 'error',
+        },
+        'retry/unix'         => {
+          'chroot'  => 'y',
+          'command' => 'error',
+        },
+        'discard/unix'       => {
+          'chroot'  => 'y',
+          'command' => 'discard',
+        },
+        'local/unix'         => {
+          'unpriv'  => 'n',
+          'chroot'  => 'n',
+          'command' => 'local',
+        },
+        'virtual/unix'       => {
+          'unpriv'  => 'n',
+          'chroot'  => 'n',
+          'command' => 'virtual',
+        },
+        'lmtp/unix'          => {
+          'chroot'  => 'y',
+          'command' => 'lmtp',
+        },
+        'anvil/unix'         => {
+          'chroot'  => 'y',
+          'limit'   => '1',
+          'command' => 'anvil',
+        },
+        'scache/unix'        => {
+          'chroot'  => 'y',
+          'limit'   => '1',
+          'command' => 'scache',
+        },
+        'postlog/unix-dgram' => {
+          'private' => 'n',
+          'chroot'  => 'n',
+          'limit'   => '1',
+          'command' => 'postlogd',
+        },
+      },
+      $alias_database                      => undef,
+      $alias_maps                          => undef,
+      $command_directory                   => undef,
+      $daemon_directory                    => undef,
+      $data_directory                      => undef,
+      $debug_peer_level                    => undef,
+      $debugger_command                    => undef,
+      $default_database_type               => undef,
+      $html_directory                      => undef,
+      $inet_interfaces                     => undef,
+      $inet_protocols                      => undef,
+      $mail_owner                          => undef,
+      $mailq_path                          => undef,
+      $manpage_directory                   => undef,
+      $mydestination                       => undef,
+      $newaliases_path                     => undef,
+      $queue_directory                     => undef,
+      $readme_directory                    => undef,
+      $sample_directory                    => undef,
+      $sendmail_path                       => undef,
+      $setgid_group                        => undef,
+      $unknown_local_recipient_reject_code => undef,
     }
     default: {
       fail("The ${module_name} module is not supported on an ${::osfamily} based system.")
