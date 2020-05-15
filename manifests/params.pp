@@ -191,8 +191,7 @@ class postfix::params {
         'mysql' => 'postfix-mysql',
         'pcre'  => 'postfix-pcre',
         'pgsql' => 'postfix-pgsql',
-      },
-      # Debian default services
+      }
       $services                            = {
         'smtp/inet'          => {
           'private' => 'n',
@@ -320,29 +319,29 @@ class postfix::params {
           'limit'   => '1',
           'command' => 'postlogd',
         },
-      },
-      $alias_database                      => undef,
-      $alias_maps                          => undef,
-      $command_directory                   => undef,
-      $daemon_directory                    => undef,
-      $data_directory                      => undef,
-      $debug_peer_level                    => undef,
-      $debugger_command                    => undef,
-      $default_database_type               => undef,
-      $html_directory                      => undef,
-      $inet_interfaces                     => undef,
-      $inet_protocols                      => undef,
-      $mail_owner                          => undef,
-      $mailq_path                          => undef,
-      $manpage_directory                   => undef,
-      $mydestination                       => undef,
-      $newaliases_path                     => undef,
-      $queue_directory                     => undef,
-      $readme_directory                    => undef,
-      $sample_directory                    => undef,
-      $sendmail_path                       => undef,
-      $setgid_group                        => undef,
-      $unknown_local_recipient_reject_code => undef,
+      }
+      $alias_database                      = undef
+      $alias_maps                          = undef
+      $command_directory                   = undef
+      $daemon_directory                    = undef
+      $data_directory                      = undef
+      $debug_peer_level                    = undef
+      $debugger_command                    = undef
+      $default_database_type               = undef
+      $html_directory                      = undef
+      $inet_interfaces                     = undef
+      $inet_protocols                      = undef
+      $mail_owner                          = undef
+      $mailq_path                          = undef
+      $manpage_directory                   = undef
+      $mydestination                       = undef
+      $newaliases_path                     = undef
+      $queue_directory                     = undef
+      $readme_directory                    = undef
+      $sample_directory                    = undef
+      $sendmail_path                       = undef
+      $setgid_group                        = undef
+      $unknown_local_recipient_reject_code = undef
     }
     default: {
       fail("The ${module_name} module is not supported on an ${::osfamily} based system.")
