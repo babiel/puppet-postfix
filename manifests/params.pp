@@ -327,7 +327,7 @@ class postfix::params {
       $data_directory                      = undef
       $debug_peer_level                    = undef
       $debugger_command                    = undef
-      $default_database_type               = undef
+      $default_database_type               = 'hash'
       $html_directory                      = undef
       $inet_interfaces                     = undef
       $inet_protocols                      = undef
