@@ -290,14 +290,14 @@ class postfix::params {
           'command' => 'discard',
         },
         'local/unix'         => {
-          'unpriv'  => 'n',
-          'chroot'  => 'n',
-          'command' => 'local',
+          'unprivileged'  => 'n',
+          'chroot'        => 'n',
+          'command'       => 'local',
         },
         'virtual/unix'       => {
-          'unpriv'  => 'n',
-          'chroot'  => 'n',
-          'command' => 'virtual',
+          'unprivileged'  => 'n',
+          'chroot'        => 'n',
+          'command'       => 'virtual',
         },
         'lmtp/unix'          => {
           'chroot'  => 'y',
