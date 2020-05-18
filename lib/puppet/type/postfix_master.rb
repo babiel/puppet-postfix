@@ -35,7 +35,7 @@ string.'
   newparam(:type) do
     desc 'The service type.'
     isnamevar
-    newvalues('inet', 'unix', 'fifo', 'pass')
+    newvalues('inet', 'unix', 'unix-dgram', 'fifo', 'pass')
     munge do |value|
       value.to_s
     end
