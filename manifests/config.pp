@@ -190,6 +190,7 @@ class postfix::config {
     'command_execution_directory'                            => $::postfix::command_execution_directory,
     'command_expansion_filter'                               => $::postfix::command_expansion_filter,
     'command_time_limit'                                     => $::postfix::command_time_limit,
+    'compatibility_level'                                    => $::postfix::compatibility_level,
     'config_directory'                                       => $::postfix::config_directory,
     'connection_cache_protocol_timeout'                      => $::postfix::connection_cache_protocol_timeout,
     'connection_cache_service_name'                          => $::postfix::connection_cache_service_name,
