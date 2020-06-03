@@ -23,14 +23,14 @@
 #
 # @since 1.0.0
 define postfix::master (
-  String                                                $command,
-  Pattern[/(?x) ^ [a-z]+ \/ (?:inet|unix|fifo|pass) $/] $service      = $title,
-  Enum['present', 'absent']                             $ensure       = 'present',
-  Optional[Enum['-', 'n', 'y']]                         $private      = undef,
-  Optional[Enum['-', 'n', 'y']]                         $unprivileged = undef,
-  Optional[Enum['-', 'n', 'y']]                         $chroot       = undef,
-  Optional[Pattern[/(?x) ^ (?: - | \d+ [?]? ) $/]]      $wakeup       = undef,
-  Optional[Pattern[/(?x) ^ (?: - | \d+ ) $/]]           $limit        = undef,
+  String                                                                  $command,
+  Pattern[/(?x) ^ [a-z0-9.:_-]+ \/ (?:inet|unix|unix-dgram|fifo|pass) $/] $service      = $title,
+  Enum['present', 'absent']                                               $ensure       = 'present',
+  Optional[Enum['-', 'n', 'y']]                                           $private      = undef,
+  Optional[Enum['-', 'n', 'y']]                                           $unprivileged = undef,
+  Optional[Enum['-', 'n', 'y']]                                           $chroot       = undef,
+  Optional[Pattern[/(?x) ^ (?: - | \d+ [?]? ) $/]]                        $wakeup       = undef,
+  Optional[Pattern[/(?x) ^ (?: - | \d+ ) $/]]                             $limit        = undef,
 ) {
 
   if ! defined(Class['::postfix']) {

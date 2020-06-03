@@ -114,6 +114,7 @@
 # @param command_execution_directory
 # @param command_expansion_filter
 # @param command_time_limit
+# @param compatibility_level
 # @param config_directory
 # @param connection_cache_protocol_timeout
 # @param connection_cache_service_name
@@ -840,6 +841,7 @@ class postfix (
   Optional[String]                    $command_execution_directory                            = undef,
   Optional[String]                    $command_expansion_filter                               = undef,
   Optional[String]                    $command_time_limit                                     = undef,
+  Optional[String]                    $compatibility_level                                    = undef,
   Optional[String]                    $config_directory                                       = undef,
   Optional[String]                    $connection_cache_protocol_timeout                      = undef,
   Optional[String]                    $connection_cache_service_name                          = undef,

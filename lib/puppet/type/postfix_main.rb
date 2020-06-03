@@ -102,6 +102,7 @@ autorequired.'
       autos += [
         "#{self[:value]}/inet",
         "#{self[:value]}/unix",
+        "#{self[:value]}/unix-dgram",
         "#{self[:value]}/fifo",
         "#{self[:value]}/pass",
       ]
@@ -165,6 +166,7 @@ autorequired.'
         autos += [
           "#{$1}/inet",
           "#{$1}/unix",
+          "#{$1}/unix-dgram",
           "#{$1}/fifo",
           "#{$1}/pass",
         ]
