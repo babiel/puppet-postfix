@@ -6,5 +6,6 @@ class postfix::service {
     enable     => true,
     hasstatus  => true,
     hasrestart => true,
+    restart    => $::postfix::service_reload_command,
   }
 }
