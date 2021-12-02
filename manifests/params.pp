@@ -4,6 +4,7 @@ class postfix::params {
   $conf_dir     = '/etc/postfix'
   $package_name = 'postfix'
   $service_name = 'postfix'
+  $service_reload_command = '/usr/bin/systemctl reload postfix.service'
 
   case $::osfamily {
     'RedHat': {
