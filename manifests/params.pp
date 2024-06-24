@@ -6,7 +6,7 @@ class postfix::params {
   $service_name = 'postfix'
   $service_reload_command = '/usr/bin/systemctl reload postfix.service'
 
-  case $::osfamily {
+  case $facts['os']['family'] {
     'RedHat': {
       $lookup_packages                     = {}
       $_services                           = {
@@ -138,7 +138,7 @@ class postfix::params {
       $setgid_group                        = 'postdrop'
       $unknown_local_recipient_reject_code = '550'
 
-      case $::operatingsystemmajrelease {
+      case $facts['os']['release']['major'] {
         '6': {
           $services         = merge($_services, {
             'pickup/fifo' => {
@@ -345,7 +345,7 @@ class postfix::params {
       $unknown_local_recipient_reject_code = undef
     }
     default: {
-      fail("The ${module_name} module is not supported on an ${::osfamily} based system.")
+      fail("The ${module_name} module is not supported on an ${facts['os']['family']} based system.")
     }
   }
 }
